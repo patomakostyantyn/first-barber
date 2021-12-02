@@ -1,6 +1,6 @@
 body {
-   position: relative;
-
+   
+   min-width: 970px;
    margin: 0;
    padding: 0;
 
@@ -15,17 +15,44 @@ body {
    background-color:#000000;
    background-position: top center;
    background-repeat: no-repeat;
+   
    background-image: url("../img/bg.jpg") ;
 
+}
+
+img {
+   max-width: 100%;
+   height: auto;
 }
 
 a {
    text-decoration: none;
 }
 
-.button {
-   font: inherit;
+.visually-hidden:not(:focus):not(:active),
+input[type="checbox"].visually-hidden,
+input[type="radio"].visually-hidden {
+   position:absolute;
 
+   width: 1px;
+   height: 1px;
+   margin: -1px;
+   border: 0;
+   padding: 0;
+
+   white-space:nowrap;
+
+   clip-path: inset(100%);
+   clip: rect(0 0 0 0);
+   overflow: hidden;
+}
+
+.button {
+   display: inline-block;
+   margin-right: 16px;
+   padding: 10px 30px;
+
+   font: inherit;
    text-align: center;
    color: #ffffff;
    vertical-align: middle;
@@ -41,74 +68,367 @@ a {
    background-color: #663d15;
 }
 
+.button.disabled,
+.button:disabled {
+   cursor: default;
+   opacity: 0.5;
+   background-color: #000000;
+}
+
+
+/*Навигация сайта*/
+.container {
+   width: 940px;
+   margin: 0 auto;
+   padding: 0 10px;
+   border: 2px solid turquoise;
+}
+
+.main-header {
+   margin-bottom: 75px;
+   border:2px solid red;
+
+   /* Временно для сетки */
+   min-height: 285px;
+}
 
 .main-navigation {
    font-size: 16px;
    line-height: 20px;
    color: #000000;
+   border:2px solid red;
 
-   background-color:#000000
-   
+   display: flex;
+   flex-direction:column;
+   align-items:center;
+
+   /*Временно для сетки */
+   min-height: 285px;
+   background-color:transparent;
+}
+
+.main-header-logo {
+   order: 2;
+   width: 368px;
+   height: 153px;
+   border:2px solid blue;
+   /* Временно для сетки*/
+   display: block;
+}
+
+.main-navigation-wrapper {
+   width:100%;
+   margin-bottom: 60px;
+   background-color:#000000;
+   border:2px solid white;
+
+
+}
+
+.main-navigation-wrapper .container {
+   display: flex;
+   justify-content: space-between;
+}
+
+
+.site-navigation {
+   display: flex;
+   flex-wrap: wrap;
+   width:620px;
+   border:3px solid yellow;
+
 }
 
 .site-navigation,
 .user-navigation {
    list-style: none;
+   margin: 0;
+   padding: 0;
+} 
+.user-navigation {
+   max-width: 140px;
+   display: flex;
+   border:2px solid green;
+
 }
 
 .site-navigation a,
 .user-navigation a {
+   display: block;
+   padding: 25px 20px;
+
+   vertical-align: middle;
    color: #ffffff;
-   padding: 20px;
 }
 
 .site-navigation a:hover,
 .site-navigation a:focus,
 .user-navigation a:hover,
 .user-navigation a:focus {
-   background: color #242424;
+   background-color: #242424;
+}
+
+.user-navigation .login-link {
+   position: relative;
+   padding-left: 50px;
+
+
+}
+
+/* Иконка логина */
+.login-link::before {
+   content: "";
+
+   position: absolute;
+   top: 27px;
+   left: 24px;
+
+   width: 16px;
+   height: 18px;
+
+
+   background-image: url(../css/svg/login.svg);
+   background-repeat: no-repeat;
+   background-position: 0 0;
+
+   opacity: 0.3;
+}
+
+.login-link:hover::before,
+.login-link:focus::before,
+.login-link:active::before {
+   opacity: 1;
+}
+
+
+
+/* MAIN CONTEINER */
+
+.features {
+   margin-bottom: 80px;
 }
 
 .features-list {
-   list-style: none;
+   display: flex;
+   justify-content: space-between;
+   margin: 0;
+   padding: 0;
+   border: 3px solid greenyellow;
+
 }
 
 .features-item {
+   width: 300px;
+
    text-align: center;
+   border: 3px solid blue;
+
+   background: rgba(255, 45, 82, 0.2);
+   box-shadow: 0 0 0 3px rgb(255, 45, 82);
 }
 
 .features-item h3 {
+   position: relative;
+
+   margin: 0;
+   margin-bottom: 60px;
+
+   font-size: 30px;
+   line-height: 42px;
+
+   background: rgba(255, 45, 82, 0.5);
+
+}
+
+.features-item h3::after {
+   content: "";
+
+   position: absolute;
+   bottom: -30px;
+   left: 50%;
+
+   width: 20px;
+   height: 20px;
+   margin-left: -10px;
+
+   background-color:#ffffff;
+
+   transform: rotate(45deg);
+
+}
+
+
+.features-item p {
+   margin: 0 10px;
+   
+}
+
+
+/*Div Класс index-columns */
+
+.index-columns {
+   display: flex;
+   justify-content: space-between;
+   
+   padding: 50px 80px;
+   margin-bottom: 35px;
+
+   color: #000000;
+   
+
+   background-color: #f8f5f2;
+   background-image: 
+   url("../img/line.png"),
+   url("../img/pattern-light.jpg");
+   
+   background-position: center, 0 0;
+   background-repeat: no-repeat, repeat;
+   border: 3px solid gold;
+   
+}
+
+.index-columns h2 {
+   margin: 0;
+   margin-bottom: 25px;
+
    font-size: 30px;
    line-height: 42px;
 }
 
-.index-columns {
-   color: #000000;
+/* Новости*/
 
-   background-color: #f8f5f2;
-   background-image: url("/img/pattern-light.jpg");
-   background-position: 0 0 ;
-   background-repeat: repeat;
+.news {
+   width: 380px;
+   background-color:rgba(0, 128, 0, 0.2);
+
+   box-shadow: 0 0 0 3px green;
+   border: 3px solid gray;
+}
+
+.news-list {
+   margin: 0;
+   margin-bottom: 25px;
+   padding: 0;
+
+   list-style: none;
+}
+
+.news-item {
+   margin-bottom: 25px;
+}
+
+.news-item p {
+   margin: 0;
+}
+
+.news-item time {
+   text-transform: none;
+}
+
+/*Галерея*/
+
+.gallery {
+   width: 300px;
+   border: 3px solid gray;
+}
+
+.gallery-container {
+   position: relative;
+
+   height: 260px;
+}
+
+.gallery-content {
+   height: 164px;
+   margin: 0;
+
+   background-color:#cccccc;
+   border: 7px solid #ffffff;
+}
+
+
+.gallery-content img {
+   width: 286px;
+   height: 164px;
+}
+
+.gallery-button {
+   box-sizing: border-box;
+   position: absolute;
+   bottom: 0;
+
+
+   width: 140px;
+   margin: 0;
+}
+
+.gallery-button-back {
+   left: 0;
+}
+
+.gallery-button-next {
+   right: 0;
+}
+
+
+.contacts {
+   width: 380px;
+   border: 3px solid gray;
+}
+
+.contacts p {
+   margin: 0;
+   margin-bottom: 25px;
+}
+
+.appointment {
+   width: 300px;
+   border: 3px solid gray;
+
+   
+}
+
+.appointment-info {
+   margin: 0;
+   margin-bottom: 15px;
+}
+
+
+.appointment-item {
+   width: 140px;
+   margin: 0;
+   margin-bottom: 10px;
+
+   background: rgba(234, 255, 45, 0.2);
+   box-shadow: inset 0 0 0 2px rgb(234, 255, 45);
+}
+
+.appointment-form {
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: space-between;
+}
+
+.appointment-item label {
+   display: block;
+   margin-bottom: 9px;
+   margin-left: 15px;
 }
 
 .index-columns h2 {
    font-size: 30px;
    line-height: 42px;
-}
+}  
 
-.news-list {
-   list-style: none;
-}
-.news-item time {
-   text-transform: none;
-}
-
-.gallery-content {
-   background-color:#cccccc;
-   border: 7px solid #ffffff;
-}
 
 .appointment-item input {
+   box-sizing: border-box;
+   width: 140px;
+   padding-top: 8px;
+   padding-left: 15px;
+   padding-right: 15px;
+   padding-bottom: 7px;
+
    font: inherit;
 
    background-color: transparent;
@@ -119,14 +439,69 @@ a {
    border-color: #663d15;
 }
 
+.appointment .button {
+   display: block;
+   width: 100%;
+   margin-top: 10px;
+   margin-right: 0;
+}
+
+
+/* MAIN-FOOTER */
+
 .main-footer {
+   padding: 60px 0;
+   margin-top: 65px;
    color: #ffffff;
 
+   border: 3px solid gold;
    background-color:#212121;
    background-image:url("../img/pattern-dark.jpg");
    background-position: 0 0;
    background-repeat:repeat;
+
+   /*Временно для сетки*/
+   min-height: 180px;
+
 }
+
+.main-footer .container {
+   display: flex;
+}
+
+.footer-contacts {
+   width: 320px;
+   margin: 0;
+   margin-right: 80px;
+   border: 3px solid rebeccapurple;
+
+   /*Временно для сетки*/
+   min-height: 100px;
+}
+
+.footer-social {
+   width: 145px;
+   border: 3px solid rebeccapurple;
+   
+   /*Временно для сетки*/
+   min-height: 100px;
+}
+
+
+.footer-copyright {
+   width: 150px;
+   margin: 0;
+   margin-left: auto;
+   text-align: right;
+   border: 3px solid rebeccapurple;
+  
+
+   /*Временно для сетки*/
+   min-height: 100px;
+}
+
+
+
 
 .footer-contacts a {
    color: #ffffff;
@@ -146,9 +521,7 @@ a {
    color:#ffffff;
 }
 
-.footer-copynight {
-   text-align: center;
-}
+
 
 .footer-copynight .button:hover,
 .footer-copynight .button:focus {
@@ -161,26 +534,67 @@ a {
 /* login form */
 
 .modal {
+   display: none;
    color: #000000;
 
    background-color: #f8f3f0;
-   background-image: url("../img/pattern-light.jpg")
+   background-image: url("../img/pattern-light.jpg");
    background-position: 0 0;
    background-repeat: repeat;
 
 }
 
+
+.modal-login {
+   position: absolute;
+   bottom: 0;
+   left: 50%;
+   transform: translate(-50%);
+   padding: 55px 80px 60px 80px;
+   width: 300px;
+}
+
+.modal-login .form-fields {
+   display: flex;
+}
+
+.form-fields input {
+   width: 100%;
+   
+}
 .modal h2 {
    font-size: 30px;
    line-height: 42px;
+   margin: 0;
 
 }
 
+.modal-login .text {
+margin: 32px 0 18px 0;
+
+}
+
+.modal-close {
+   position: absolute;
+   left: 100%;
+   bottom: 0px;
+   
+}
+
+.login-password-info {
+display: flex;
+justify-content: space-between;
+}
+
+.login-form button {
+width: 100%;
+}
 .login-form input[type="text"],
 .login-form input[type="password"] {
    font: inherit;
    color: #000000;
    text-transform: uppercase;
+   padding: 14px;
 
    background-color: #f9f6f3;
    border: 2px solid #000000;
@@ -204,9 +618,6 @@ a {
 .restore:focus {
    text-decoration: none;
 }
-
-
-
 
 
 
